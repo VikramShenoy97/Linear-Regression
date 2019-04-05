@@ -8,9 +8,9 @@ import plotly.graph_objs as go
 
 #File Updater Code
 def updateDataFile():
-    file = open("data.txt", "w")
+    file = open("Data/data.txt", "w")
     file.close()
-    file = open("data.txt", "w")
+    file = open("Data/data.txt", "w")
     for i in range(0,50):
         if ( i == 0 ):
             file.write(str(randint(60, 99)) + " " + str(randint(60, 99)))
@@ -24,7 +24,7 @@ def extractDataFromFile():
     x_input = []
     y_input = []
     split = []
-    file = open("data.txt", "r")
+    file = open("Data/data.txt", "r")
     n = 0
     for line in file:
         split = line.split(' ')
@@ -96,7 +96,7 @@ def drawGraph(x_axis, y_axis, m, c):
     fig = go.Figure(data=data, layout=layout)
     fig['layout']['yaxis1'].update(title="Dependent Variable",range= [min(y_axis)-20,max(y_axis)+10], showline = True)
     fig['layout']['xaxis1'].update(title="Independent Variable", range= [min(x_axis)-20,max(x_axis)+10], showline = True)
-    py.image.save_as(fig, filename="Graph.png")
+    py.image.save_as(fig, filename="Graphs/Graph.png")
     print "Graph Created"
 
 
